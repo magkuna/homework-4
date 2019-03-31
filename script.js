@@ -9,7 +9,18 @@ class ToDo {
 
         this.render()
     }
+    
+    addTask(newTaskText){
+        const newTask = {
 
+            text:newTaskText,
+            isCompleted:false,
+        }
+
+        this.tasks = this.tasks.concat(newTask)
+
+        this.render()
+    }
     render() {
         this.container.innerHTML = ''
 
@@ -39,7 +50,7 @@ class ToDo {
         input.setAttribute('placeholder', 'Nowe zadanie')
         button.innerText = 'Dodaj!'
 
-        const clickHandler = () => console.log (input.value)
+        const clickHandler = () => this.addTask (input.value)
 
         button.addEventListener(
             'click',
