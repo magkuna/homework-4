@@ -3,7 +3,8 @@
         constructor(selector) {
             this.container = document.querySelector(selector) || document.body
 
-            this.tasks = []
+            this.tasks = JSON.parse(localStorage.getItem('to-do-list')) || []
+
 
             this.render()
         }
@@ -65,7 +66,7 @@
             const input = document.createElement('input')
             const button = document.createElement('button')
 
-            input.setAttribute('placeholder', 'Nowe zadanie')
+            input.setAttribute('placeholder', 'Wprowadź nowe zadanie')
             button.innerText = 'Dodaj!'
 
             const clickHandler = () => this.addTask(input.value)
@@ -75,7 +76,7 @@
                 clickHandler
             )
 
-            // check closure here (in [[Scopes]] property)
+         
             console.dir(clickHandler)
 
             div.appendChild(input)
