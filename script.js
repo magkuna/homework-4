@@ -36,7 +36,7 @@ class ToDo {
         this.render()
 
     }
-    removeTask(index){
+    removeTask(index) {
         this.tasks.splice(index, 1)
 
         this.render()
@@ -52,31 +52,28 @@ class ToDo {
         )
     }
 
-    
-
     renderTask(task, index) {
         const div = document.createElement('div')
         div.innerText = task.text
         const button = document.createElement('button')
         button.innerText = 'usuń'
 
-        if (task.isCompleted) div.style.textDecoration = 'line-through' 
+        if (task.isCompleted) div.style.textDecoration = 'line-through'
         div.addEventListener(
             'click',
             () => this.toggleTask(index)
         )
-        
+
         if (task.isCompleted)
-             button.addEventListener(
-            'click',
-            () => this.removeTask(index)
-        )
+            button.addEventListener(
+                'click',
+                () => this.removeTask(index)
+            )
 
         this.container.appendChild(div)
         this.container.appendChild(button)
 
     }
-  
 
     renderForm() {
         const div = document.createElement('div')
