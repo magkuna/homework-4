@@ -9,6 +9,11 @@ class ToDo {
 
         this.render()
     }
+    toggleTask(taskIndex){
+        this.tasks[taskIndex].isCompleted = !this.tasks[taskIndex].isCompleted
+
+        this.render()
+    }
     
     addTask(newTaskText){
         const newTask = {
