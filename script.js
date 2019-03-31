@@ -31,10 +31,12 @@
                 isCompleted: false,
             }
 
-            this.tasks = this.tasks.concat(newTask)
+            this.tasks = this.tasks.concat(newTask) 
 
             this.render()
+
         }
+        
 
         render() {
             this.container.innerHTML = ''
@@ -48,36 +50,49 @@
 
         renderTask(task, index) {
             const div = document.createElement('div')
-
             div.innerText = task.text
+            const button = document.createElement('button')
+            button.innerText = 'usuń'   
 
-            if (task.isCompleted) div.style.textDecoration = 'line-through'
-
+            if (task.isCompleted) div.style.textDecoration = 'line-through' 
             div.addEventListener(
                 'click',
                 () => this.toggleTask(index)
             )
 
+            if (task.isCompleted) {
+                div.addEventListener(
+                    'click',
+                    () => this.toggleTask.remove()
+                )
+            }
+
             this.container.appendChild(div)
+           this.container.appendChild(button)
+        
+
         }
+        
 
         renderForm() {
             const div = document.createElement('div')
             const input = document.createElement('input')
             const button = document.createElement('button')
+            
 
             input.setAttribute('placeholder', 'Wprowadź nowe zadanie')
             button.innerText = 'Dodaj!'
 
             const clickHandler = () => this.addTask(input.value)
+                  
 
             button.addEventListener(
                 'click',
                 clickHandler
             )
 
-         
             console.dir(clickHandler)
+           
 
             div.appendChild(input)
             div.appendChild(button)
