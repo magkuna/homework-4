@@ -36,7 +36,11 @@ class ToDo {
         this.render()
 
     }
+    removeTask(index){
+        this.tasks.splice(index, 1)
 
+        this.render()
+    }
 
     render() {
         this.container.innerHTML = ''
@@ -65,7 +69,7 @@ class ToDo {
         if (task.isCompleted)
              button.addEventListener(
             'click',
-            () => console.log("usunięto")
+            () => this.removeTask(index)
         )
 
         this.container.appendChild(div)
