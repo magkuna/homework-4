@@ -13,7 +13,7 @@ class ToDo {
     render() {
         this.container.innerHTML = ''
 
-       
+        this.renderForm()
 
         this.tasks.forEach(
             task =>this.renderTask(task)
@@ -29,5 +29,19 @@ class ToDo {
 
         this.container.appendChild(div)
     
+    }
+
+    renderForm(){
+        const div = document.createElement('div')
+        const input = document.createElement('input')
+        const button = document.createElement ('button')
+
+        input.setAttribute('placeholder', 'Nowe zadanie')
+        button.innerText = 'Dodaj!'
+
+        div.appendChild(input)
+        div.appendChild(button)
+        this.container.appendChild(div)
+        
     }
 }
